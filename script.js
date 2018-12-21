@@ -1,5 +1,5 @@
-const installButton = document.document.getElementById('pwa-install');
-const statusText = document.document.getElementById('pwa-status');
+const installButton = document.getElementById('pwa-install');
+const statusText = document.getElementById('pwa-status');
 
 let installPrompt = null;
 installButton.style.display = 'none';
