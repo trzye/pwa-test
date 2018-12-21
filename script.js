@@ -1,4 +1,5 @@
-const installButton = document.querySelector('.install');
+const installButton = document.document.getElementById('pwa-install');
+const statusText = document.document.getElementById('pwa-status');
 
 let installPrompt = null;
 installButton.style.display = 'none';
@@ -11,9 +12,9 @@ window.addEventListener('beforeinstallprompt', (prompt) => {
         installPrompt.prompt();
         installPrompt.userChoice.then((choiceResult) => {
             if (choiceResult.outcome === 'accepted') {
-                console.log('User accepted installation');
+                statusText.innerHTML += ' User accepted installation.';
             } else {
-                console.log('user not accepted installation');
+                statusText.innerHTML += ' User refused installation.';
             }
             deferredPrompt = null;
         });
@@ -22,6 +23,6 @@ window.addEventListener('beforeinstallprompt', (prompt) => {
 
 if('serviceWorker' in navigator) {
   navigator.serviceWorker.register("serviceworker.js").then(function() {
-        alert('Service Worker Registered'); 
+        statusText.innerHTML += " Service worker is enabled."
   });
 }
