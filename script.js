@@ -11,7 +11,7 @@ window.addEventListener('beforeinstallprompt', (prompt) => {
     installPrompt = prompt;
     installButton.style.display = 'block';
     installButton.addEventListener('click', (e) => {
-        addBtn.style.display = 'none';
+        installButton.style.display = 'none';
         installPrompt.prompt();
         installPrompt.userChoice.then((choiceResult) => {
             if (choiceResult.outcome === 'accepted') {
